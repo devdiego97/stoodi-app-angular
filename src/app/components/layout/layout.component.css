@@ -1,0 +1,23 @@
+header {
+  background: #8b187f;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+main {
+  min-height: 100vh;
+  .content{
+    padding: 20px;
+  }
+}
+
+footer {
+  background: #424242;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

@@ -1,0 +1,83 @@
+<app-layout>
+  <div class="d-flex d-sm-flex page container">
+    <div class="">
+      <div class="card" >
+         <div class="card-header">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZGD_6wif9YVdHf9j00T7Vzt5SPPSFA8p_1Q&s"  alt="">
+         </div>
+          <div class="card-body">
+            <h5 class="card-title text-center mb-5">Diego Dutra Morais</h5>
+            <ul>
+              <li class="text-dark mb-3"><span for="">Email</span>diegodutramoraisgmail.com</li>
+              <li class="text-dark "><span for="">Senha</span>diegodutramoraisgmail.com</li>
+            </ul>
+            <div class="d-flex justify-center align-items-center m-5">
+              <button class="btn btn-primary btn-lg " data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
+
+            </div>
+          </div>
+      </div>
+    </div>
+    <div>
+     <div class="container  right-container">
+      <div>
+        <img class="rounded" src="plans.png" alt="">
+      </div>
+      <div class='plans mt-5 d-flex align-items-center'>
+          <div class="card m-4 p-3 flex-fill">
+            <h3>Plano Essencial</h3>
+            <ul>
+              <li class="text-dark m-3">Acesso a concursos gratuitos e materiais de estudo básicos</li>
+              <li class="text-dark m-3">Alertas de novos concursos</li>
+              <li class="text-dark m-3">Fórum de discussão com outros candidatos</li>
+              <li class="text-dark m-3">Acesso ás lives</li>
+              <li class="text-dark m-3">5</li>
+              <li class="text-dark m-3">5</li>
+            </ul>
+            <div class="d-flex justify-content-center">
+              <button class=" btn btn-primary btn-lg">Assinar</button>
+            </div>
+          </div>
+          <div class="card m-2 p-3 flex-fill">
+            <h3>Plano Estudante Pró</h3>
+            <ul>
+              <li class="text-dark m-3">Acesso a concursos gratuitos e materiais de estudo básicos</li>
+              <li class="text-dark m-3">Alertas de novos concursos</li>
+              <li class="text-dark m-3">Fórum de discussão com outros candidatos</li>
+              <li class="text-dark m-3 m-3">Acesso ás lives</li>
+              <li class="text-dark m-3">5</li>
+              <li class="text-dark m-3">5</li>
+            </ul>
+            <div class="d-flex justify-content-center">
+              <button class=" btn btn-primary btn-lg">Assinar</button>
+            </div>
+          </div>
+      </div>
+     </div>
+    </div>
+  </div>
+  <app-modal title="Atualize seus Dados">
+    <form>
+      <div class="mb-3">
+        <label for="inputName" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="inputName" >
+      </div>
+      <div class="mb-3">
+        <label for="einputLastname" class="form-label">Sobrenome</label>
+        <input type="text" class="form-control" id="inputLastname" >
+      </div>
+      <div class="mb-3">
+        <label for="inputEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputEmail" >
+      </div>
+      <div class="mb-3">
+        <label for="inputTel" class="form-label">Telefone</label>
+        <input type="tel" class="form-control" id="inputTel" >
+      </div>
+      <div class="mb-3">
+        <label for="inpuPass" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="inputPass" >
+      </div>
+    </form>
+  </app-modal>
+</app-layout>

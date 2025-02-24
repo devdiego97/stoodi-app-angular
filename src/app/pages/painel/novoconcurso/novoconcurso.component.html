@@ -1,0 +1,61 @@
+<app-painellayout>
+  <div class="content">
+    <form action="" class="m-4">
+      <p class="h5 mb-5">Preencha os campos para criar um novo concurso</p>
+     <div>
+        <label class="h6" for="">Selecione uma imagem de capa do concurso</label>
+        <div class="input-group  mb-3">
+          <input type="file" class="form-control" id="inputGroupFile02">
+          <label class="input-group-text" for="inputGroupFile02">Imagem de capa</label>
+        </div>
+     </div>
+      <div class="mb-3">
+        <label for="title" class="form-label h6">Titulo</label>
+        <input type="text" class="form-control" id="title" placeholder="Titulo do concurso">
+      </div>
+      <div class="mb-3">
+        <label for="organization h6" class="form-label h6">Banca</label>
+        <input type="text" class="form-control" id="organization" placeholder="name@example.com">
+      </div>
+      <div>
+        <label class="h6">Nivel de Estudo Requerido</label>
+        <select class="form-select mt-3 mb-3" aria-label="Default select example">
+          <option  selected class="bg bg-primary text-white" value="1">Ensino Fudamental</option>
+          <option value="2">Ensino Médio</option>
+          <option value="3">Ensino Superior</option>
+          <option value="4">Todos</option>
+        </select>
+      </div>
+      <div>
+        <label class="h6">Abrangência</label>
+        <select class="form-select mt-3 mb-3" aria-label="Default select example">
+          <option  selected class="bg bg-primary text-white"  value="1">Municipal</option>
+          <option value="2">Estadual</option>
+          <option value="3">Nacional</option>
+        </select>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="urlSubscription" class="h6 form-label">link de inscrição</label>
+        <input type="url" class="form-control" id="urlSubscription" placeholder="link de inscrição">
+      </div>
+      <div class="mb-3">
+        <label for="numvacancies" class="h6 form-label">Número de vagas</label>
+        <input type="number" class="form-control" id="numvacancies" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="salary" class="h6  form-label">Média Salarial</label>
+        <input type="number" class="form-control" id="salary" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="about" class="h6 form-label">Sobre</label>
+        <textarea class="form-control" id="about" rows="9"></textarea>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button style="width:150px;" class="btn btn-primary btn-lg">Enviar</button>
+      </div>
+    </form>
+  </div>
+  </app-painellayout>
+
