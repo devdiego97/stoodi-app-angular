@@ -1,3 +1,24 @@
 <app-layout>
-  <p>concurso-id works!</p>
+ <div class="page">
+      <div class="img">
+        <img src="" alt="">
+      </div>
+     <section class="content m-5">
+      <h1>{{concourse?.title}}</h1>
+        <div class="content row my-5">
+          <div class="col-12 col-md-7 p-5">
+            <h3>Sobre</h3>
+            <p>{{concourse?.about}}</p>
+          </div>
+          <div class="resume col-12 col-md-5 my-5 border p-5">
+            <h4>Detalhes</h4>
+            <p><strong>Status</strong> : {{concourse?.status}}</p>
+            <p><strong>Abrangência</strong> :{{concourse?.abrangency}}</p>
+            <p><strong>N° de vagas</strong> :{{concourse?.numVacancies}}</p>
+            <p><strong>Prazo das inscrições</strong>:Entre {{concourse?.dateStart}} á {{concourse?.dateEnd}}</p>
+            <p class="d-flex"><strong>Link</strong> :<a href="[{{'concourse?.urlRegistration'}}]" target="_blank">{{concourse?.urlRegistration}}</a></p>
+          </div>
+        </div>
+     </section>
+  </div>
 </app-layout>

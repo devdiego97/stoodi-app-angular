@@ -79,11 +79,13 @@ export interface IGetConcourseById{
     dateStart:Date,
     dateEnd:Date,
     about:string,
+    city:string,
+    state:string
     status:string,
-    edicts:string | null,
+    edicts:string[] | null,
     organization:string,
-    abrangency:string,
-    levelRequired:string,
+    abrangency:"Municipal" | "Estadual" | "Nacional",
+    levelRequired:"Ensino Médio" | "Ensino Fundamental" | "Ensino Superior" | "Todos",
     urlRegistration:string,
 
 }

@@ -29,14 +29,9 @@ export const routes: Routes = [
   {
     path:'concursos',
     component:ConcursosComponent,
-    children:[
-
-        {
-          path:':id',
-          component:ConcursoIdComponent
-        }
-
-    ]
+  },{
+    path:'concursos/:id',
+    component:ConcursoIdComponent
   },
   {
     path:'painel/concursos',
