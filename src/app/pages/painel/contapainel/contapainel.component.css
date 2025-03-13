@@ -1,0 +1,33 @@
+.page{
+  display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.card{
+  width: 50%;
+  border: 1px solid #ddd;
+}
+
+.header-card{
+  height: 100px;
+  padding: 100px 30px;
+  background-color: blue;
+}
+.header-card .photo{
+  height: 120px;
+  background-color: #aaa;
+  border-radius: 100%;
+  width: 120px;
+}
+.body-card{
+  margin: 50px 20px;
+}
+
+
+@media screen and (min-width:350px) and (max-width:950px){
+
+  .card{
+    width: 90%;
+  }
+}

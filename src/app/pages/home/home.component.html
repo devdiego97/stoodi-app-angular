@@ -1,14 +1,83 @@
 <app-layout>
-  <section class="bg bg-primary">
-    inicio
+    <div class="banner"></div>
+  <section class=" container">
+    <div  class="row">
+    <div class="col-12 col-lg-6 col-md-6">
+         <div>
+            <h1>Em Busca de oportunidade de mudar de vida?Somos a <strong>STOODI</strong>!</h1>
+            <p class=" mt-5 fs-5 text-secondary">Somos uma plataforma de divulgação de concursos públicos e de cursos prepratórios.Perfeito pra você que quer ficar
+              atendanado e ao mesmo tempo preparado
+            </p>
+            <p class=" mt-2 fs-5 text-secondary">
+              Você já parou para pensar que todos os aprovados em concursos públicos têm algo em comum? Eles não esperaram a oportunidade chegar, eles criaram essa oportunidade com muito estudo e dedicação.
+              E você, está preparado para fazer parte desse grupo de aprovados?
+              Nós podemos te ajudar nessa jornada! Com nossos cursos, você terá todo o suporte necessário para
+            estudar de forma eficiente e alcançar a tão sonhada aprovação.
+            </p>
+            <div class="d-flex my-5 justify-content-center">
+               <button  [routerLink]="['/cadastro']" class="btn btn-primary btn-lg">
+                QUERO ME PREPARAR
+               </button>
+            </div>
+         </div>
+       </div>
+       <div class="col-12 mt-5 col-md-6 d-flex justify-content-center">
+           <div>
+             <img src="./home2.jpg" width="100%" class="rounded" height="650">
+          </div>
+       </div>
+    </div>
   </section>
-  <section class="bg-danger">
-    vantagens
+  <section class="bg-success d-flex justify-content-center p-5">
+     <div class="container">
+      <p class="h4 text-center text-white fs-3 text-uppercase">Vantagens de estudar com a gente</p>
+       <div class="d-flex justify-content-center row cards">
+         <div class="card col-12 d-flex p-4 mt-5">
+            <div >
+               <h4  class="mb-3">Professores Especialistas</h4>
+                <p>Contamos com uma equipe de professores renomados e experientes em concursos públicos.</p>
+                <p>Aprenda com quem realmente entende do assunto e já ajudou milhares de alunos a serem aprovados.</p>
+            </div>
+         </div>
+         <div class="card col-12 p-4 mt-5">
+             <div class="content">
+                <h4  class="mb-3">Material Completo e Organizado</h4>
+                <p>Apostilas, resumos, mapas mentais e questões comentadas.</p>
+                <p>Tenha tudo o que precisa em um só lugar, sem perder tempo procurando materiais extras.</p>
+             </div>
+         </div>
+         <div class="card col-12 mt-5 p-4">
+            <div class="icon">
+
+            </div>
+            <div class="content">
+              <h4 class="mb-3">Suporte Personalizado</h4>
+              <p>Tire suas dúvidas diretamente com professores e monitores.</p>
+              <p> Não fique com dúvidas acumuladas e avance nos estudos com confiança.</p>
+            </div>
+         </div>
+       </div>
+     </div>
   </section>
-  <section class="bg-success">
-    cursos
-  </section>
-  <section class="bg-primary">
-    acordion
-  </section>
+  <div >
+    <section class="p-5">
+      <div class="row">
+        <div class="col-12 col-md-6 d-flex justify-content-center">
+          <img src="/ilustracao.png" height="450px"  alt="">
+        </div>
+        <div class="col-12 col-md-6">
+          <h2>ESTÁ ESPERANDO O QUE?</h2>
+          <p class="h4 my-3">Aproveite as melhores oportunidades no mundo dos concursos</p>
+          <ul>
+            <li class=" fs-6 my-2 ">Contamos com uma equipe de professores renomados e experientes em concursos públicos</li>
+            <li class=" fs-6 my-2 ">Aprenda com quem realmente entende do assunto e já ajudou milhares de alunos a serem aprovados.</li>
+            <li class="  fs-6 my-2 ">Acesso á apostilas, resumos, mapas mentais e questões comentadas.</li>
+            <li class=" fs-6 my-2 ">Tenha tudo o que precisa em um só lugar, sem perder tempo procurando materiais extras.</li>
+            <li class=" fs-6 my-2 ">Tire suas dúvidas diretamente com professores e monitores.</li>
+            <li class=" fs-6 my-2 ">Não fique com dúvidas acumuladas e avance nos estudos com confiança</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
 </app-layout>

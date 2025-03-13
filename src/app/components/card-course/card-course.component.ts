@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IConcourse } from '../../interface/concourses.data';
+import { IConcourse } from '../../interface/concourses.interface';
 
 @Component({
   selector: 'app-card-course',

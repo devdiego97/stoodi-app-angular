@@ -1,4 +1,28 @@
 
+.banner{
+  background-image: url('/home.jpg');
+  height: 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
 section{
+  margin: 50px auto;
   min-height: 700px;
+}
+
+.cards{
+  margin: 100px 0;
+}
+.card{
+  width:350px;
+  margin: 0 20px;
+  min-height: 300px;
+
+  .svg{
+    stroke: 2px solid #222;
+    height: 90px;
+    width: 90px;
+  }
 }

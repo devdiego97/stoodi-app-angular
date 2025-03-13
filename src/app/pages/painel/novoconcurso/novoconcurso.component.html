@@ -1,61 +1,157 @@
 <app-painellayout>
   <div class="content">
-    <form action="" class="m-4">
+    <p-toast></p-toast>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="m-4">
       <p class="h5 mb-5">Preencha os campos para criar um novo concurso</p>
-     <div>
-        <label class="h6" for="">Selecione uma imagem de capa do concurso</label>
-        <div class="input-group  mb-3">
-          <input type="file" class="form-control" id="inputGroupFile02">
-          <label class="input-group-text" for="inputGroupFile02">Imagem de capa</label>
+
+      <!-- Campo: Link da Capa -->
+      <div class="mb-3">
+        <label for="cover" class="form-label h6">Link da Capa</label>
+        <input type="text" formControlName="cover" class="form-control" id="cover" placeholder="Link da capa do concurso">
+        <div *ngIf="getFormControl('cover')?.invalid && getFormControl('cover')?.touched" class="text-danger">
+          Link da capa é obrigatório.
         </div>
-     </div>
-      <div class="mb-3">
-        <label for="title" class="form-label h6">Titulo</label>
-        <input type="text" class="form-control" id="title" placeholder="Titulo do concurso">
-      </div>
-      <div class="mb-3">
-        <label for="organization h6" class="form-label h6">Banca</label>
-        <input type="text" class="form-control" id="organization" placeholder="name@example.com">
-      </div>
-      <div>
-        <label class="h6">Nivel de Estudo Requerido</label>
-        <select class="form-select mt-3 mb-3" aria-label="Default select example">
-          <option  selected class="bg bg-primary text-white" value="1">Ensino Fudamental</option>
-          <option value="2">Ensino Médio</option>
-          <option value="3">Ensino Superior</option>
-          <option value="4">Todos</option>
-        </select>
-      </div>
-      <div>
-        <label class="h6">Abrangência</label>
-        <select class="form-select mt-3 mb-3" aria-label="Default select example">
-          <option  selected class="bg bg-primary text-white"  value="1">Municipal</option>
-          <option value="2">Estadual</option>
-          <option value="3">Nacional</option>
-        </select>
       </div>
 
+      <!-- Campo: Cidade -->
+      <div class="mb-3">
+        <label for="city" class="form-label h6">Cidade</label>
+        <input type="text" formControlName="city" class="form-control" id="city" placeholder="Cidade do concurso">
+        <div *ngIf="getFormControl('city')?.invalid && getFormControl('city')?.touched" class="text-danger">
+          Cidade é obrigatória.
+        </div>
+      </div>
 
+      <!-- Campo: Estado -->
       <div class="mb-3">
-        <label for="urlSubscription" class="h6 form-label">link de inscrição</label>
-        <input type="url" class="form-control" id="urlSubscription" placeholder="link de inscrição">
+        <label for="state" class="form-label h6">Estado</label>
+        <input type="text" formControlName="state" class="form-control" id="state" placeholder="Estado do concurso">
+        <div *ngIf="getFormControl('state')?.invalid && getFormControl('state')?.touched" class="text-danger">
+          Estado é obrigatório.
+        </div>
       </div>
+
+      <!-- Campo: Título -->
       <div class="mb-3">
-        <label for="numvacancies" class="h6 form-label">Número de vagas</label>
-        <input type="number" class="form-control" id="numvacancies" placeholder="">
+        <label for="title" class="form-label h6">Título</label>
+        <input type="text" formControlName="title" class="form-control" id="title" placeholder="Título do concurso">
+        <div *ngIf="getFormControl('title')?.invalid && getFormControl('title')?.touched" class="text-danger">
+          <div *ngIf="getFormControl('title')?.hasError('required')">Título é obrigatório.</div>
+          <div *ngIf="getFormControl('title')?.hasError('minlength')">O título deve ter pelo menos 5 caracteres.</div>
+        </div>
       </div>
+
+      <!-- Campo: Banca -->
       <div class="mb-3">
-        <label for="salary" class="h6  form-label">Média Salarial</label>
-        <input type="number" class="form-control" id="salary" placeholder="">
+        <label for="organization" class="form-label h6">Banca</label>
+        <input type="text" formControlName="organization" class="form-control" id="organization" placeholder="Nome da banca">
+        <div *ngIf="getFormControl('organization')?.invalid && getFormControl('organization')?.touched" class="text-danger">
+          Banca é obrigatória.
+        </div>
       </div>
+
+      <!-- Campo: Status -->
       <div class="mb-3">
-        <label for="about" class="h6 form-label">Sobre</label>
-        <textarea class="form-control" id="about" rows="9"></textarea>
+        <label for="status" class="form-label h6">Status</label>
+        <select formControlName="status" class="form-select" id="status">
+          <option value="Andamento">Andamento</option>
+          <option value="Finalizado">Finalizado</option>
+          <option value="Previsto">Previsto</option>
+        </select>
+        <div *ngIf="getFormControl('status')?.invalid && getFormControl('status')?.touched" class="text-danger">
+          Status é obrigatório.
+        </div>
       </div>
+
+      <!-- Campo: Nível de Estudo -->
+      <div class="mb-3">
+        <label for="levelRequired" class="form-label h6">Nível de Estudo Requerido</label>
+        <select formControlName="levelRequired" class="form-select" id="levelRequired">
+          <option value="EnsinoFundamental">Ensino Fundamental</option>
+          <option value="EnsinoMedio">Ensino Médio</option>
+          <option value="EnsinoSuperior">Ensino Superior</option>
+          <option value="Todos">Todos</option>
+        </select>
+        <div *ngIf="getFormControl('levelRequired')?.invalid && getFormControl('levelRequired')?.touched" class="text-danger">
+          Nível de estudo é obrigatório.
+        </div>
+      </div>
+
+      <!-- Campo: Abrangência -->
+      <div class="mb-3">
+        <label for="abrangency" class="form-label h6">Abrangência</label>
+        <select formControlName="abrangency" class="form-select" id="abrangency">
+          <option value="Municipal">Municipal</option>
+          <option value="Estadual">Estadual</option>
+          <option value="Nacional">Nacional</option>
+        </select>
+        <div *ngIf="getFormControl('abrangency')?.invalid && getFormControl('abrangency')?.touched" class="text-danger">
+          Abrangência é obrigatória.
+        </div>
+      </div>
+
+      <!-- Campo: Link de Inscrição -->
+      <div class="mb-3">
+        <label for="urlRegistration" class="form-label h6">Link de Inscrição</label>
+        <input type="url" formControlName="urlRegistration" class="form-control" id="urlRegistration" placeholder="Link de inscrição">
+        <div *ngIf="getFormControl('urlRegistration')?.invalid && getFormControl('urlRegistration')?.touched" class="text-danger">
+          <div *ngIf="getFormControl('urlRegistration')?.hasError('required')">Link de inscrição é obrigatório.</div>
+          <div *ngIf="getFormControl('urlRegistration')?.hasError('pattern')">O link deve começar com http:// ou https://.</div>
+        </div>
+      </div>
+
+      <!-- Campo: Data de Início -->
+      <div class="mb-3">
+        <label for="dateStart" class="form-label h6">Início das Inscrições</label>
+        <input type="date" formControlName="dateStart" class="form-control" id="dateStart">
+        <div *ngIf="getFormControl('dateStart')?.invalid && getFormControl('dateStart')?.touched" class="text-danger">
+          Data de início é obrigatória.
+        </div>
+      </div>
+
+      <!-- Campo: Data de Término -->
+      <div class="mb-3">
+        <label for="dateEnd" class="form-label h6">Final das Inscrições</label>
+        <input type="date" formControlName="dateEnd" class="form-control" id="dateEnd">
+        <div *ngIf="getFormControl('dateEnd')?.invalid && getFormControl('dateEnd')?.touched" class="text-danger">
+          Data de término é obrigatória.
+        </div>
+      </div>
+
+      <!-- Campo: Número de Vagas -->
+      <div class="mb-3">
+        <label for="numVacancies" class="form-label h6">Número de Vagas</label>
+        <input type="number" formControlName="numVacancies" class="form-control" id="numVacancies">
+        <div *ngIf="getFormControl('numVacancies')?.invalid && getFormControl('numVacancies')?.touched" class="text-danger">
+          <div *ngIf="getFormControl('numVacancies')?.hasError('required')">Número de vagas é obrigatório.</div>
+          <div *ngIf="getFormControl('numVacancies')?.hasError('min')">O número de vagas deve ser maior que zero.</div>
+        </div>
+      </div>
+
+      <!-- Campo: Média Salarial -->
+      <div class="mb-3">
+        <label for="mediaSalary" class="form-label h6">Média Salarial</label>
+        <input type="number" formControlName="mediaSalary" class="form-control" id="mediaSalary">
+        <div *ngIf="getFormControl('mediaSalary')?.invalid && getFormControl('mediaSalary')?.touched" class="text-danger">
+          <div *ngIf="getFormControl('mediaSalary')?.hasError('required')">Média salarial é obrigatória.</div>
+          <div *ngIf="getFormControl('mediaSalary')?.hasError('min')">A média salarial não pode ser negativa.</div>
+        </div>
+      </div>
+
+      <!-- Campo: Sobre -->
+      <div class="mb-3">
+        <label for="about" class="form-label h6">Sobre</label>
+        <p-editor formControlName="about"  [style]="{ height: '320px' }" />
+        <div *ngIf="getFormControl('about')?.invalid && getFormControl('about')?.touched" class="text-danger">
+          <div *ngIf="getFormControl('about')?.hasError('required')">O campo "Sobre" é obrigatório.</div>
+          <div *ngIf="getFormControl('about')?.hasError('minlength')">O campo "Sobre" deve ter pelo menos 10 caracteres.</div>
+        </div>
+      </div>
+
+      <!-- Botão de Envio -->
       <div class="d-flex justify-content-center">
-        <button style="width:150px;" class="btn btn-primary btn-lg">Enviar</button>
+        <button type="submit" class="btn btn-primary btn-lg" [disabled]="form.invalid">Enviar</button>
       </div>
     </form>
   </div>
-  </app-painellayout>
-
+</app-painellayout>
