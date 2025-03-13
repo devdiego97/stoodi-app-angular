@@ -20,6 +20,9 @@ import { ConcourseServiceService } from '../../services/concourse/concourse-serv
 export class ConcursosComponent {
  data:IConcourse[] |any | []=[]
   constructor(@Inject(ServicesToken.HTTP.CONCOURSE) private readonly httpService:IConcourseService){
-    
+
   }
+
+
+
 }

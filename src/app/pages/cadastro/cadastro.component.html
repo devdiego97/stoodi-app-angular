@@ -1,43 +1,115 @@
 <app-layout>
   <div class="container mt-6">
-    <div class="p-3 cx-form justify-center align-items-center ">
-      <form>
+    <div class="p-3 cx-form justify-center align-items-center">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div>
           <h2>Criar sua conta</h2>
           <p>Preencha os campos para criar a sua conta</p>
         </div>
+
+        <!-- Campo Nome -->
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Nome:</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text valid-feedback">We'll never share your email with anyone else.</div>
+          <label for="name" class="form-label">Nome:</label>
+          <input
+            type="text"
+            formControlName="name"
+            class="form-control"
+            id="name"
+            aria-describedby="nameHelp"
+          />
+          <div *ngIf="getFormControl('name')?.invalid && getFormControl('name')?.touched" class="text-danger">
+            <div *ngIf="getFormControl('name')?.errors?.['required']">Nome é obrigatório.</div>
+            <div *ngIf="getFormControl('name')?.errors?.['minlength']">
+              O nome deve ter pelo menos 3 caracteres.
+            </div>
+          </div>
         </div>
+
+        <!-- Campo Sobrenome -->
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Sobrenome:</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text valid-feedback">We'll never share your email with anyone else.</div>
+          <label for="lastname" class="form-label">Sobrenome:</label>
+          <input
+            type="text"
+            formControlName="lastname"
+            class="form-control"
+            id="lastname"
+            aria-describedby="lastnameHelp"
+          />
+          <div *ngIf="getFormControl('lastname')?.invalid && getFormControl('lastname')?.touched" class="text-danger">
+            <div *ngIf="getFormControl('lastname')?.errors?.['required']">Sobrenome é obrigatório.</div>
+            <div *ngIf="getFormControl('lastname')?.errors?.['minlength']">
+              O sobrenome deve ter pelo menos 3 caracteres.
+            </div>
+          </div>
         </div>
+
+        <!-- Campo Telefone -->
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Telefone:</label>
-          <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text valid-feedback">We'll never share your email with anyone else.</div>
+          <label for="phone" class="form-label">Telefone:</label>
+          <input
+            type="tel"
+            formControlName="phone"
+            class="form-control"
+            id="phone"
+            aria-describedby="phoneHelp"
+          />
+          <div *ngIf="getFormControl('phone')?.invalid && getFormControl('phone')?.touched" class="text-danger">
+            <div *ngIf="getFormControl('phone')?.errors?.['required']">Telefone é obrigatório.</div>
+            <div *ngIf="getFormControl('phone')?.errors?.['pattern']">Apenas números são permitidos.</div>
+            <div *ngIf="getFormControl('phone')?.errors?.['minlength']">
+              O telefone deve ter pelo menos 10 dígitos.
+            </div>
+            <div *ngIf="getFormControl('phone')?.errors?.['maxlength']">
+              O telefone não pode ter mais de 11 dígitos.
+            </div>
+          </div>
         </div>
+
+        <!-- Campo Email -->
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text valid-feedback">We'll never share your email with anyone else.</div>
+          <label for="email" class="form-label">Email:</label>
+          <input
+            type="email"
+            formControlName="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+          />
+          <div *ngIf="getFormControl('email')?.invalid && getFormControl('email')?.touched" class="text-danger">
+            <div *ngIf="getFormControl('email')?.errors?.['required']">Email é obrigatório.</div>
+            <div *ngIf="getFormControl('email')?.errors?.['email']">Por favor, insira um email válido.</div>
+          </div>
         </div>
+
+        <!-- Campo Senha -->
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Senha:</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <label for="password" class="form-label">Senha:</label>
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            id="password"
+          />
+          <div *ngIf="getFormControl('password')?.invalid && getFormControl('password')?.touched" class="text-danger">
+            <div *ngIf="getFormControl('password')?.errors?.['required']">Senha é obrigatória.</div>
+            <div *ngIf="getFormControl('password')?.errors?.['minlength']">
+              A senha deve ter pelo menos 6 caracteres.
+            </div>
+            <div *ngIf="getFormControl('password')?.errors?.['maxlength']">
+              A senha não pode ter mais de 20 caracteres.
+            </div>
+          </div>
         </div>
+
+        <!-- Checkbox -->
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Lembrar senha </label>
+          <label class="form-check-label" for="exampleCheck1">Lembrar senha</label>
         </div>
-        <button type="submit" class="btn btn-primary">Entrar</button>
+
+        <!-- Botão de Envio -->
+        <button type="submit" class="btn btn-primary btn-lg" [disabled]="form.invalid">Enviar</button>
       </form>
     </div>
   </div>
-
-  </app-layout>
-
+</app-layout>
