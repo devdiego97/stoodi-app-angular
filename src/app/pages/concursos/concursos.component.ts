@@ -7,10 +7,11 @@ import { IConcourse } from '../../interface/concourses.interface';
 import { ServicesToken } from '../../services/services.token';
 import { IConcourseService } from '../../services/concourse/concourse.interface';
 import { ConcourseServiceService } from '../../services/concourse/concourse-service.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-concursos',
-  imports: [LayoutComponent, CardConcourseComponent, CarroselComponent],
+  imports: [LayoutComponent, CardConcourseComponent, CarroselComponent,CommonModule],
   templateUrl: './concursos.component.html',
   styleUrl: './concursos.component.css',
   providers:[
@@ -18,9 +19,25 @@ import { ConcourseServiceService } from '../../services/concourse/concourse-serv
   ]
 })
 export class ConcursosComponent {
- data:IConcourse[] |any | []=[]
-  constructor(@Inject(ServicesToken.HTTP.CONCOURSE) private readonly httpService:IConcourseService){
+   data:IConcourse[] |any | []=[]
+  constructor(@Inject(ServicesToken.HTTP.CONCOURSE) private readonly httpService:IConcourseService){ }
 
+
+  ngOnInit(): void {
+    this.loadConcoursesAll();
+  }
+
+  loadConcoursesAll(): void {
+    this.httpService.listAllConcourses().subscribe({
+      next: (response) => {
+        this.data=response
+        console.log('Dados salvos com sucesso:', response);
+      },
+      error: (error) => {
+        console.error('Erro ao salvar os dados:', error);
+
+      }
+    })
   }
 
 
